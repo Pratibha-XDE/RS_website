@@ -98,6 +98,5 @@
   @media (min-width: 768px) { padding-inline: 2rem; }
 }
 
-/* Original logo is black on white: blend it into light surfaces, invert on dark ones */
-@utility logo-on-light { mix-blend-mode: multiply; }
-@utility logo-on-dark { filter: invert(1); mix-blend-mode: screen; }
+/* Clean logo styling without distorting CSS filters */
+

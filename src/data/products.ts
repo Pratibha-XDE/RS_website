@@ -1,5 +1,12 @@
 import chakli from "@/assets/chakli.jpg";
 import chivda from "@/assets/chivda.jpg";
+import besanLaddu from "@/assets/besan-laddu.jpg";
+import bundiLaddu from "@/assets/bundi-laddu.jpg";
+import dryfruitsLaddu from "@/assets/dryfruits-laddu.jpg";
+import shankarpaliGod from "@/assets/shankarpali-god.jpg";
+import shankarpaliKhari from "@/assets/shankarpali-khari.jpg";
+import shev from "@/assets/shev.jpg";
+import chakliPith from "@/assets/chakli-pith.jpg";
 
 export type Product = {
   name: string;
@@ -7,30 +14,92 @@ export type Product = {
   description?: string;
   image: string;
   imageAlt: string;
-  category: string;
+  category: "Savoury" | "Sweets" | "Traditional Flour";
   featured: boolean;
 };
 
-// Single source of truth for the catalogue. Images are temporary stand-ins
-// until genuine product photographs are supplied.
+// Single source of truth for the catalogue.
 export const products: Product[] = [
   {
-    name: "Special Chakli",
-    slug: "special-chakli",
-    description: "A traditional spiral snack, made the homemade way.",
+    name: "Chakli",
+    slug: "chakli",
+    description: "Golden, crispy spiral snack made with authentic roasted grain bhajani and traditional spices.",
     image: chakli,
-    imageAlt: "Golden chakli spirals in a brass plate",
+    imageAlt: "Crisp golden chakli spirals arranged in a brass bowl",
     category: "Savoury",
     featured: true,
   },
   {
-    name: "Special Chivda",
-    slug: "special-chivda",
-    description: "A classic Maharashtrian mix, made for sharing.",
+    name: "Khari Shankarpali",
+    slug: "khari-shankarpali",
+    description: "Flaky, salted diamond crisps delicately seasoned with roasted cumin and sesame.",
+    image: shankarpaliKhari,
+    imageAlt: "Flaky savoury khari shankarpali crisps in a brass plate",
+    category: "Savoury",
+    featured: false,
+  },
+  {
+    name: "Sweet Shankarpali",
+    slug: "sweet-shankarpali",
+    description: "Golden diamond-cut sweet bites crafted with pure ghee, sugar, and fine wheat flour.",
+    image: shankarpaliGod,
+    imageAlt: "Golden sweet shankarpali diamond cookies in a brass bowl",
+    category: "Sweets",
+    featured: true,
+  },
+  {
+    name: "Thin Poha Chivda",
+    slug: "thin-poha-chivda",
+    description: "Light roasted beaten rice delicately tempered with crunchy peanuts, cashews, and aromatic curry leaves.",
     image: chivda,
-    imageAlt: "Chivda in a terracotta bowl",
+    imageAlt: "Thin poha chivda garnished with roasted nuts and curry leaves in a terracotta bowl",
     category: "Savoury",
     featured: true,
+  },
+  {
+    name: "Shev",
+    slug: "shev",
+    description: "Delicately spiced, crisp golden sev crafted from premium gram flour and fresh spices.",
+    image: shev,
+    imageAlt: "Crisp golden shev in a traditional Warli-painted terracotta bowl",
+    category: "Savoury",
+    featured: false,
+  },
+  {
+    name: "Dry Fruits Ladoo",
+    slug: "dry-fruits-ladoo",
+    description: "Rich, wholesome festive ladoos packed with premium roasted almonds, cashews, pistachios, and pure ghee.",
+    image: dryfruitsLaddu,
+    imageAlt: "Rich dry fruits ladoos with visible almonds, pistachios, and raisins in a brass plate",
+    category: "Sweets",
+    featured: false,
+  },
+  {
+    name: "Besan Ladoo",
+    slug: "besan-ladoo",
+    description: "Classic melt-in-the-mouth sweet made with slowly roasted gram flour, pure ghee, and fragrant cardamom.",
+    image: besanLaddu,
+    imageAlt: "Golden besan ladoos garnished with chopped pistachios in a brass thali",
+    category: "Sweets",
+    featured: true,
+  },
+  {
+    name: "Boondi Ladoo",
+    slug: "boondi-ladoo",
+    description: "Soft, succulent golden pearls steeped in aromatic saffron-cardamom syrup and garnished with dry fruits.",
+    image: bundiLaddu,
+    imageAlt: "Juicy golden boondi ladoos with saffron and almonds in a brass dish",
+    category: "Sweets",
+    featured: false,
+  },
+  {
+    name: "Chakli Bhajani Flour",
+    slug: "chakli-bhajani-flour",
+    description: "Meticulously roasted multi-grain and pulse flour blend for making authentic, crunchy homemade chaklis.",
+    image: chakliPith,
+    imageAlt: "Traditional chakli bhajani flour in an earthen pot with brass chakli press and roasted spices",
+    category: "Traditional Flour",
+    featured: false,
   },
 ];
 
@@ -38,7 +107,7 @@ export const site = {
   name: "Rupali Snacks",
   tagline: "Healthy Food, Happy Mood",
   location: "Pune, Maharashtra, India",
-  established: 2026,
+  established: 2012,
   // Add when supplied: WhatsApp in international digits only, e.g. "919800000000"
   whatsapp: null as string | null,
   instagram: null as string | null,

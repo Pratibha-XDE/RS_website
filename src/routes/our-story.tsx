@@ -6,7 +6,7 @@ export const Route = createFileRoute("/our-story")({
   head: () => ({
     meta: [
       { title: "Our Story | Rupali Snacks, Pune" },
-      { name: "description", content: "Rupali Snacks is a homegrown Indian snacks business from Pune, established in 2026, providing employment to 10 women." },
+      { name: "description", content: "Rupali Snacks is a homegrown Indian snacks business from Pune, established in 2012, providing employment to 10 women." },
       { property: "og:title", content: "Our Story | Rupali Snacks" },
       { property: "og:description", content: "The story behind a homegrown snacks brand from Pune." },
     ],
@@ -33,7 +33,7 @@ function Story() {
         <div className="space-y-6 self-center text-lg text-muted-foreground">
           <p>
             <span className="font-display text-3xl text-primary">Rupali Snacks</span> is a homegrown Indian snacks
-            business from Pune, Maharashtra, established in 2026.
+            business from Pune, Maharashtra, established in 2012.
           </p>
           <p>
             It started where good food always starts: in a home kitchen, with a love for the snacks that fill our

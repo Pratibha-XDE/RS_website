@@ -1,19 +1,56 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/rupali-logo.jpg.asset.json";
 import { site, type Product } from "@/data/products";
 import { cn } from "@/lib/utils";
 
-export function Logo({ dark = false, className }: { dark?: boolean; className?: string }) {
+export function Logo({
+  dark = false,
+  className,
+}: {
+  dark?: boolean;
+  className?: string;
+}) {
+  if (dark) {
+    return (
+      <div className={cn("inline-flex flex-col items-start", className)}>
+        <div className="inline-flex items-center justify-center rounded-lg bg-ivory p-2.5 shadow-xs border border-ivory/20">
+          <img
+            src="/rs-monogram.png"
+            alt="Rupali Snacks logo"
+            width={48}
+            height={48}
+            className="h-12 w-12 object-contain"
+          />
+        </div>
+        <p className="mt-4 font-display text-2xl tracking-wider uppercase text-ivory">
+          {site.name}
+        </p>
+        <p className="mt-1 text-sm font-medium text-marigold tracking-wide">
+          {site.tagline}
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <img
-      src={logo.url}
-      alt="Rupali Snacks, established 2026"
-      width={1440}
-      height={800}
-      className={cn("h-11 w-auto", dark ? "logo-on-dark" : "logo-on-light", className)}
-    />
+    <div className={cn("inline-flex items-center gap-3", className)}>
+      <img
+        src="/rs-monogram.png"
+        alt="Rupali Snacks logo"
+        width={40}
+        height={40}
+        className="h-10 w-10 object-contain shrink-0 transition-transform group-hover:scale-105"
+      />
+      <div className="flex flex-col">
+        <span className="font-display text-xl font-normal leading-none tracking-wide text-espresso">
+          {site.name}
+        </span>
+        <span className="text-[9.5px] font-bold tracking-[0.2em] uppercase text-primary mt-1 leading-none">
+          {site.tagline}
+        </span>
+      </div>
+    </div>
   );
 }
 
@@ -25,7 +62,13 @@ export const btn = {
   light: cn(btnBase, "bg-ivory text-primary hover:bg-marigold hover:text-espresso"),
 };
 
-const nav = [
+const headerNav = [
+  { label: "Home", to: "/" as const, hash: "" },
+  { label: "Our Snacks", to: "/snacks" as const, hash: "" },
+  { label: "Our Story", to: "/our-story" as const, hash: "" },
+];
+
+const footerNav = [
   { label: "Home", to: "/" as const, hash: "" },
   { label: "Our Snacks", to: "/snacks" as const, hash: "" },
   { label: "Our Story", to: "/our-story" as const, hash: "" },
@@ -42,7 +85,7 @@ export function SiteHeader() {
           <Logo />
         </Link>
         <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
-          {nav.map((n) => (
+          {headerNav.map((n) => (
             <Link
               key={n.label}
               to={n.to}
@@ -69,7 +112,7 @@ export function SiteHeader() {
       {open && (
         <nav aria-label="Mobile" className="border-t border-border bg-background lg:hidden">
           <div className="container-site flex flex-col py-3">
-            {nav.map((n) => (
+            {headerNav.map((n) => (
               <Link
                 key={n.label}
                 to={n.to}
@@ -95,13 +138,14 @@ export function SiteFooter() {
     <footer className="bg-espresso text-ivory">
       <div className="container-site grid gap-10 py-14 md:grid-cols-3">
         <div>
-          <Logo dark className="h-16" />
-          <p className="mt-4 font-display text-xl">{site.tagline}</p>
-          <p className="mt-1 text-sm text-ivory/70">{site.location}</p>
+          <Logo dark />
+          <p className="mt-3 text-xs text-ivory/70">
+            Homemade in {site.location} · Est. {site.established}
+          </p>
         </div>
         <nav aria-label="Footer" className="flex flex-col gap-2 text-sm">
           <span className="eyebrow text-marigold">Explore</span>
-          {nav.map((n) => (
+          {footerNav.map((n) => (
             <Link key={n.label} to={n.to} hash={n.hash} className="text-ivory/80 hover:text-marigold">
               {n.label}
             </Link>

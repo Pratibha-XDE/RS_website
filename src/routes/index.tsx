@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { HandHeart, Leaf, Sparkles, Users, Droplets, Flame } from "lucide-react";
 import hero from "@/assets/hero.jpg";
 import festive from "@/assets/festive.jpg";
+import ourKitchen from "@/assets/our-kitchen.jpg";
 import { products, site } from "@/data/products";
 import { btn, Marigold, ProductGrid, Rangoli, SectionHeading } from "@/components/site";
 
@@ -39,31 +40,44 @@ function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <Rangoli className="pointer-events-none absolute -left-24 top-24 hidden w-80 text-gold/40 lg:block" />
         <div className="container-site grid items-center gap-12 py-12 md:py-20 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           <div className="order-2 lg:order-1">
-            <p className="eyebrow">Homemade with love</p>
-            <p className="mt-5 font-display text-2xl text-primary">Rupali Snacks</p>
-            <h1 className="mt-3 text-5xl md:text-6xl xl:text-7xl">
-              A Taste of Home, Made for Every <em className="text-primary">Celebration.</em>
+            {/* Prominent Brand Identity Lockup */}
+            <div className="mb-7 flex flex-col items-start">
+              <img
+                src="/rs-monogram.png"
+                alt="Rupali Snacks logo"
+                width={96}
+                height={96}
+                className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain"
+              />
+              <p className="mt-3.5 font-display text-3xl sm:text-4xl md:text-5xl tracking-wide uppercase text-espresso">
+                {site.name}
+              </p>
+              <p className="mt-1 text-sm sm:text-base md:text-lg font-semibold tracking-wide text-primary">
+                {site.tagline}
+              </p>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl xl:text-6xl text-espresso font-display leading-[1.15]">
+              A Taste of Home, Made for Every <em className="text-primary not-italic">Celebration.</em>
             </h1>
-            <p className="mt-6 max-w-lg text-lg text-muted-foreground">
+            <p className="mt-5 max-w-lg text-base sm:text-lg text-muted-foreground">
               Discover the joy of traditional Indian snacks, thoughtfully prepared with care and inspired by the
               flavours that bring us together.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/snacks" className={btn.primary}>Explore Our Snacks</Link>
               <Link to="/our-story" className={btn.outline}>Our Story</Link>
             </div>
           </div>
           <div className="relative order-1 lg:order-2">
-            <div className="absolute -right-6 -top-6 h-2/3 w-2/3 rounded-full bg-peach" aria-hidden="true" />
             <img
               src={hero}
               alt="Homemade chakli in a brass bowl beside chivda in a terracotta bowl, with marigold petals"
               width={1280}
               height={1440}
-              className="relative aspect-[4/4.5] w-full rounded-t-full object-cover"
+              className="relative aspect-[4/4.5] w-full rounded-t-full object-cover shadow-sm"
             />
             <Marigold className="absolute -bottom-4 left-6 h-12 w-12 text-marigold" />
           </div>
@@ -106,18 +120,28 @@ function Home() {
       <section id="festive" className="relative overflow-hidden bg-primary py-20 text-primary-foreground md:py-28">
         <Rangoli className="pointer-events-none absolute -right-20 -top-20 w-96 text-gold/30" />
         <div className="container-site relative grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="eyebrow text-marigold">Festive specials</p>
-            <h2 className="mt-4 text-4xl md:text-5xl">Festivals Taste Better Together.</h2>
-            <p className="mt-5 max-w-md text-lg text-primary-foreground/85">
-              Celebrate special moments with traditional flavours and homemade favourites made for sharing.
-            </p>
-            <div className="mt-8 flex items-center gap-2 text-marigold" aria-hidden="true">
-              <Marigold className="h-5 w-5" />
-              <span className="h-px w-24 bg-gold/60" />
-              <Marigold className="h-5 w-5" />
+          <div className="space-y-6">
+            <div>
+              <p className="eyebrow text-marigold">Festive specials</p>
+              <h2 className="mt-4 text-4xl md:text-5xl">Festivals Taste Better Together.</h2>
+              <p className="mt-5 max-w-md text-lg text-primary-foreground/85">
+                Celebrate special moments with traditional flavours and homemade favourites made for sharing.
+              </p>
             </div>
-            <Link to="/" hash="contact" className={`${btn.light} mt-8`}>Get in Touch</Link>
+
+            <div className="pt-2">
+              <h3 className="font-display text-2xl text-marigold md:text-3xl">
+                Made with Tradition. Shared with Love.
+              </h3>
+              <div className="my-3 flex items-center gap-2" aria-hidden="true">
+                <span className="h-px w-10 bg-marigold/60" />
+                <Marigold className="h-4 w-4 text-marigold" />
+                <span className="h-px w-10 bg-marigold/60" />
+              </div>
+              <p className="max-w-md text-base leading-relaxed text-primary-foreground/90">
+                A celebration of authentic flavours, cherished recipes, and homemade goodness.
+              </p>
+            </div>
           </div>
           <img
             src={festive}
@@ -133,15 +157,15 @@ function Home() {
       {/* Story preview */}
       <section className="bg-peach py-20 md:py-28">
         <div className="container-site grid items-center gap-12 md:grid-cols-[0.9fr_1.1fr]">
-          <div
-            className="grid aspect-square place-items-center rounded-sm border border-gold/50 bg-background"
-            role="img"
-            aria-label="Photo of the Rupali Snacks team coming soon"
-          >
-            <div className="text-center">
-              <Rangoli className="mx-auto w-28 text-gold" />
-              <p className="eyebrow mt-4 text-muted-foreground">Our kitchen · Pune</p>
-            </div>
+          <div className="overflow-hidden rounded-sm border border-gold/50 bg-background shadow-sm">
+            <img
+              src={ourKitchen}
+              alt="Traditional homemade festive Indian snacks and sweets in brass platters"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="aspect-square w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
+            />
           </div>
           <SectionHeading eyebrow="Our story" title="From a Passion to a Growing Brand.">
             <p>
