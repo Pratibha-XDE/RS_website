@@ -108,7 +108,10 @@ export const site = {
   tagline: "Healthy Food, Happy Mood",
   location: "Pune, Maharashtra, India",
   established: 2012,
+  phone: "+91 99709 12152",
+  phoneTel: "+919970912152",
+  instagram: "https://www.instagram.com/rupalisnacks?psln=ZWx3dnlqbXZueGdr",
+  linkedin: "https://www.linkedin.com/in/rupali-patil-b84b18264?utm_source=share_via&utm_content=profile&utm_medium=member_android",
   // Add when supplied: WhatsApp in international digits only, e.g. "919800000000"
   whatsapp: null as string | null,
-  instagram: null as string | null,
 };

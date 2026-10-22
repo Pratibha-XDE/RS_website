@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { HandHeart, Leaf, Sparkles, Users, Droplets, Flame } from "lucide-react";
+import { HandHeart, Leaf, Sparkles, Users, Droplets, Flame, Phone, Instagram, Linkedin } from "lucide-react";
 import hero from "@/assets/hero.jpg";
 import festive from "@/assets/festive.jpg";
 import ourKitchen from "@/assets/our-kitchen.jpg";
@@ -198,13 +198,52 @@ function Home() {
           <SectionHeading title="Let's Make Every Gathering a Little More Special." center className="mt-6">
             Discover Rupali Snacks and get in touch to learn more about our homemade favourites.
           </SectionHeading>
-          <div className="mt-9">
-            {site.whatsapp ? (
-              <a href={`https://wa.me/${site.whatsapp}`} className={btn.primary}>Chat on WhatsApp</a>
-            ) : (
-              <p className="text-sm text-muted-foreground">Contact details coming soon · {site.location}</p>
-            )}
+          <div className="mt-10 grid gap-6 sm:grid-cols-3 max-w-3xl mx-auto">
+            <a
+              href={`tel:${site.phoneTel || "+919970912152"}`}
+              className="group flex flex-col items-center justify-center rounded-xl border border-border/80 bg-background/50 p-6 text-center transition-all duration-300 hover:border-primary/40 hover:bg-background hover:shadow-sm"
+              aria-label="Call +91 99709 12152"
+            >
+              <div className="grid h-12 w-12 place-items-center rounded-full bg-peach text-primary transition-transform duration-300 group-hover:scale-110">
+                <Phone className="h-5 w-5" />
+              </div>
+              <span className="mt-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">Phone</span>
+              <span className="mt-1 text-base font-semibold text-espresso transition-colors group-hover:text-primary">
+                +91 99709 12152
+              </span>
+            </a>
+            <a
+              href={site.instagram || "https://www.instagram.com/rupalisnacks?psln=ZWx3dnlqbXZueGdr"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center justify-center rounded-xl border border-border/80 bg-background/50 p-6 text-center transition-all duration-300 hover:border-primary/40 hover:bg-background hover:shadow-sm"
+              aria-label="Visit Rupali Snacks on Instagram"
+            >
+              <div className="grid h-12 w-12 place-items-center rounded-full bg-peach text-primary transition-transform duration-300 group-hover:scale-110">
+                <Instagram className="h-5 w-5" />
+              </div>
+              <span className="mt-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">Instagram</span>
+              <span className="mt-1 text-base font-semibold text-espresso transition-colors group-hover:text-primary">
+                @rupalisnacks
+              </span>
+            </a>
+            <a
+              href={site.linkedin || "https://www.linkedin.com/in/rupali-patil-b84b18264?utm_source=share_via&utm_content=profile&utm_medium=member_android"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center justify-center rounded-xl border border-border/80 bg-background/50 p-6 text-center transition-all duration-300 hover:border-primary/40 hover:bg-background hover:shadow-sm"
+              aria-label="Connect with Rupali Patil on LinkedIn"
+            >
+              <div className="grid h-12 w-12 place-items-center rounded-full bg-peach text-primary transition-transform duration-300 group-hover:scale-110">
+                <Linkedin className="h-5 w-5" />
+              </div>
+              <span className="mt-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">LinkedIn</span>
+              <span className="mt-1 text-base font-semibold text-espresso transition-colors group-hover:text-primary">
+                Rupali Patil
+              </span>
+            </a>
           </div>
+          <p className="mt-8 text-xs text-muted-foreground">Homemade in {site.location}</p>
         </div>
       </section>
     </>

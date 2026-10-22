@@ -49,7 +49,7 @@ function Story() {
       <section className="relative overflow-hidden bg-peach py-20 md:py-28">
         <Rangoli className="pointer-events-none absolute -left-20 bottom-0 w-80 text-gold/40" />
         <div className="container-site relative mx-auto max-w-3xl text-center">
-          <p className="font-display text-7xl text-primary md:text-8xl">10</p>
+          <p className="font-display text-7xl text-primary md:text-8xl">10+ </p>
           <p className="eyebrow mt-2">Women, one kitchen</p>
           <p className="mt-6 text-xl leading-relaxed text-espresso md:text-2xl">
             What began as a passion now provides employment to ten women. Every batch carries their skill, their

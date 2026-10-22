@@ -80,7 +80,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/95 backdrop-blur">
-      <div className="container-site flex h-16 items-center justify-between gap-4">
+      <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 xl:px-12">
         <Link to="/" aria-label="Rupali Snacks home" className="shrink-0">
           <Logo />
         </Link>
@@ -111,7 +111,7 @@ export function SiteHeader() {
       </div>
       {open && (
         <nav aria-label="Mobile" className="border-t border-border bg-background lg:hidden">
-          <div className="container-site flex flex-col py-3">
+          <div className="flex flex-col px-4 py-3 sm:px-6">
             {headerNav.map((n) => (
               <Link
                 key={n.label}
@@ -153,11 +153,23 @@ export function SiteFooter() {
         </nav>
         <div className="flex flex-col gap-2 text-sm">
           <span className="eyebrow text-marigold">Connect</span>
+          {site.phone && (
+            <a href={`tel:${site.phoneTel || site.phone.replace(/\s+/g, "")}`} className="text-ivory/80 hover:text-marigold">
+              {site.phone}
+            </a>
+          )}
           {site.whatsapp && (
             <a href={`https://wa.me/${site.whatsapp}`} className="text-ivory/80 hover:text-marigold">WhatsApp</a>
           )}
           {site.instagram && (
-            <a href={site.instagram} className="text-ivory/80 hover:text-marigold">Instagram</a>
+            <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="text-ivory/80 hover:text-marigold">
+              Instagram
+            </a>
+          )}
+          {site.linkedin && (
+            <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="text-ivory/80 hover:text-marigold">
+              LinkedIn
+            </a>
           )}
           <p className="text-ivory/70">Homemade in {site.location}</p>
         </div>
