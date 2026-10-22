@@ -26,9 +26,9 @@ export const btn = {
 };
 
 const nav = [
-  { label: "Home", to: "/" as const },
-  { label: "Our Snacks", to: "/snacks" as const },
-  { label: "Our Story", to: "/our-story" as const },
+  { label: "Home", to: "/" as const, hash: "" },
+  { label: "Our Snacks", to: "/snacks" as const, hash: "" },
+  { label: "Our Story", to: "/our-story" as const, hash: "" },
   { label: "Festive Specials", to: "/" as const, hash: "festive" },
   { label: "Contact", to: "/" as const, hash: "contact" },
 ];
