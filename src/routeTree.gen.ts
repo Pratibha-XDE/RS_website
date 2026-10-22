@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OurStoryRouteImport } from './routes/our-story'
+import { Route as SnacksRouteImport } from './routes/snacks'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OurStoryRoute = OurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SnacksRoute = SnacksRouteImport.update({
+  id: '/snacks',
+  path: '/snacks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/our-story': typeof OurStoryRoute
+  '/snacks': typeof SnacksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/our-story': typeof OurStoryRoute
+  '/snacks': typeof SnacksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/our-story': typeof OurStoryRoute
+  '/snacks': typeof SnacksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/our-story' | '/snacks'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/our-story' | '/snacks'
+  id: '__root__' | '/' | '/our-story' | '/snacks'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  OurStoryRoute: typeof OurStoryRoute
+  SnacksRoute: typeof SnacksRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/our-story': {
+      id: '/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof OurStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/snacks': {
+      id: '/snacks'
+      path: '/snacks'
+      fullPath: '/snacks'
+      preLoaderRoute: typeof SnacksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  OurStoryRoute: OurStoryRoute,
+  SnacksRoute: SnacksRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
