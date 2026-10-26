@@ -39,11 +39,11 @@ function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="container-site grid items-center gap-12 py-12 md:py-20 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
-          <div className="order-2 lg:order-1">
+      <section className="relative">
+        <div className="container-site grid items-center gap-10 py-10 sm:py-12 md:py-14 lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:py-12 xl:gap-16 xl:py-14">
+          <div className="order-2 md:mx-auto md:w-full md:max-w-xl lg:order-1 lg:mx-0 lg:max-w-none">
             {/* Prominent Brand Identity Lockup */}
-            <div className="mb-7 flex flex-col items-start">
+            <div className="mb-5 flex flex-col items-start md:mb-6">
               <img
                 src="/rs-monogram.png"
                 alt="Rupali Snacks logo"
@@ -51,10 +51,10 @@ function Home() {
                 height={96}
                 className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain"
               />
-              <p className="mt-3.5 font-display text-3xl sm:text-4xl md:text-5xl tracking-wide uppercase text-espresso">
+              <p className="mt-2.5 font-display text-3xl sm:text-4xl md:text-5xl tracking-wide uppercase text-espresso">
                 {site.name}
               </p>
-              <p className="mt-1 text-sm sm:text-base md:text-lg font-semibold tracking-wide text-primary">
+              <p className="mt-0.5 text-sm sm:text-base md:text-lg font-semibold tracking-wide text-primary">
                 {site.tagline}
               </p>
             </div>
@@ -62,22 +62,22 @@ function Home() {
             <h1 className="text-4xl sm:text-5xl xl:text-6xl text-espresso font-display leading-[1.15]">
               A Taste of Home, Made for Every <em className="text-primary not-italic">Celebration.</em>
             </h1>
-            <p className="mt-5 max-w-lg text-base sm:text-lg text-muted-foreground">
+            <p className="mt-4 max-w-lg text-base sm:text-lg text-muted-foreground">
               Discover the joy of traditional Indian snacks, thoughtfully prepared with care and inspired by the
               flavours that bring us together.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               <Link to="/snacks" className={btn.primary}>Explore Our Snacks</Link>
               <Link to="/our-story" className={btn.outline}>Our Story</Link>
             </div>
           </div>
-          <div className="relative order-1 lg:order-2">
+          <div className="relative order-1 md:mx-auto md:w-full md:max-w-xl lg:order-2 lg:mx-0 lg:max-w-none">
             <img
               src={hero}
               alt="Homemade chakli in a brass bowl beside chivda in a terracotta bowl, with marigold petals"
               width={1280}
               height={1440}
-              className="relative aspect-[4/4.5] w-full rounded-t-full object-cover shadow-sm"
+              className="relative aspect-[4/4.5] w-full rounded-t-full object-cover shadow-sm lg:aspect-[4/4.3] xl:aspect-[4/4.2]"
             />
             <Marigold className="absolute -bottom-4 left-6 h-12 w-12 text-marigold" />
           </div>

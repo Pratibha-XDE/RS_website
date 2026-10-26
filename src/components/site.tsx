@@ -205,7 +205,7 @@ export function SectionHeading({
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="group">
+    <article className="group flex h-full flex-col">
       <div className="overflow-hidden rounded-sm bg-card">
         <img
           src={product.image}
@@ -216,18 +216,18 @@ export function ProductCard({ product }: { product: Product }) {
           className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
         />
       </div>
-      <div className="mt-5 flex items-baseline justify-between gap-4 border-b border-border pb-4">
+      <div className="mt-5 flex items-start justify-between gap-4 border-b border-border pb-4 sm:min-h-20">
         <h3 className="text-2xl">{product.name}</h3>
         <span className="eyebrow shrink-0 text-muted-foreground">{product.category}</span>
       </div>
-      {product.description && <p className="mt-3 text-sm text-muted-foreground">{product.description}</p>}
+      {product.description && <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{product.description}</p>}
     </article>
   );
 }
 
 export function ProductGrid({ items }: { items: Product[] }) {
   return (
-    <div className="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:gap-y-14 lg:grid-cols-3">
       {items.map((p) => (
         <ProductCard key={p.slug} product={p} />
       ))}

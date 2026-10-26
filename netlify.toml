@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build:static"
+  publish = "dist"
+
+# All public routes are prerendered as <route>/index.html. Netlify's normal
+# clean-URL handling serves those documents directly, so no SPA fallback is
+# required (or desirable) for this static export.

@@ -34,20 +34,20 @@ function Snacks() {
     <>
       <section className="relative overflow-hidden border-b border-border">
         <Rangoli className="pointer-events-none absolute -right-16 -top-16 w-72 text-gold/40" />
-        <div className="container-site relative py-16 md:py-24">
+        <div className="container-site relative py-14 md:py-20">
           <p className="eyebrow">The collection</p>
           <h1 className="mt-4 text-5xl md:text-6xl">Discover Our Snacks.</h1>
-          <p className="mt-5 max-w-lg text-lg text-muted-foreground">
+          <p className="mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
             Explore authentic Maharashtrian snacks, handcrafted festive sweets, and traditional flour prepared with homemade care.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-2 pt-2">
+          <div className="mt-7 flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
                 className={cn(
-                  "rounded-full px-5 py-2 text-xs font-semibold tracking-wide uppercase transition-all duration-200",
+                  "inline-flex min-h-10 items-center rounded-full px-5 py-2 text-xs font-semibold tracking-wide uppercase transition-all duration-200",
                   selectedCategory === cat
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "border border-border/80 bg-card text-espresso/80 hover:border-primary hover:text-primary"
@@ -63,7 +63,7 @@ function Snacks() {
       <section className="py-16 md:py-24">
         <div className="container-site">
           <ProductGrid items={filteredProducts} />
-          <div className="mt-20 flex flex-col items-center gap-4 text-center">
+          <div className="mt-16 flex flex-col items-center gap-4 text-center md:mt-20">
             <p className="font-display text-2xl">Looking for festive orders or custom quantities?</p>
             <Link to="/" hash="contact" className={btn.primary}>Get in Touch</Link>
           </div>
